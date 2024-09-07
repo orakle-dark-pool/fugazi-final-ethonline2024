@@ -4,11 +4,11 @@ This repository contains the final result of Orakle Dark Pool Team's hard work a
 
 ## What is Dark Pool?
 
-TBD
+Dark pools are equity trading systems that do not publicly display orders. They enable large trades to be executed in private manner so that the traders get better price for their orders.
 
 ## Why Do We Need Decentralized Dark Pool?
 
-TBD
+Although the order is not public, the exchange operators can still see user orders and exploit them. This is not a mere conspirancy theory; [See](https://www.sec.gov/newsroom/press-releases/2014-114) [these](https://www.sec.gov/newsroom/press-releases/2016-16) [examples](https://www.sec.gov/newsroom/press-releases/2018-193). This happens because of the trust assumption that the trusted & centralized entity, in this case, exchange operators, will act honestly. Through the trustless and decentralized dark pool, users can benefit from the better execution without risk of being exploited.
 
 ## How Does It Work?
 
@@ -20,15 +20,19 @@ Fugazi usese following 3 tools to hide order information:
 
 ### FHE
 
-TBD
+Fully Homomorphic Encryption (FHE) is a emerging cryptographic scheme that can process data blindly (i.e., without decryption) without compromising transparency and usability. By leveraging FHE supported by Fhenix's Helium testnet. We store and process user balances, pool reserves, and order information such as size and direction.
 
 ### Batch Execution
 
-TBD
+AMM with encrypted reserves is not enough for privacy. See [following](https://arxiv.org/abs/2103.01193) [studies](https://eprint.iacr.org/2021/1101). TL;DR of these studies are: 1. The attacker can discover user order through sandwiching it, and 2. Batching is inevitable to mitigate such attack vector. Instead of authors original proposal (randomize order priorities then execute them one by one), we clear them in uniform price. We adopted specialized AMM curve for batching, called FM-AMM. FM-AMM itself has another positive effect, too. The more arbitrageurs are trading against our pool, the total cost of pool paying to arbitrageurs decay by 1/N. For more details check [this article](https://ethresear.ch/t/notes-on-the-lvr-of-fm-amm/20151).
 
 ### Noise Order
 
-TBD
+There is one more way of hiding user order from attacker. As introduced in [here](https://arxiv.org/abs/2309.14652). By forcing protocol-owned account to submit randomized order and pay protocol an additional fee for providing privacy, users can hide their order without batching. The additional fee is expected profit of arbitrageur from exploiting the post-trade state. We adopted this method too. Users can set the degree of noise up to 200%. This will be especially useful whenever there are not many orders in given batch.
+
+## Conclusion
+
+We built a dark pool that does not require any external or centralized entity to run. User orders' information is hidden through either batching or adding noise (and pay fee). Our dark pool supports UX that is as same as most of existing DEXs such as Uniswap, Curve, Balancer, etc etc, except users have to wait for a while after submitting order.
 
 ## References
 
