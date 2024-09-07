@@ -1,0 +1,6 @@
+[submodule "fugazi-core-ethonline2024"]
+	path = fugazi-core-ethonline2024
+	url = https://github.com/orakle-dark-pool/fugazi-core-ethonline2024.git
+[submodule "fugazi-interface-ethonline2024"]
+	path = fugazi-interface-ethonline2024
+	url = https://github.com/orakle-dark-pool/fugazi-interface-ethonline2024.git
