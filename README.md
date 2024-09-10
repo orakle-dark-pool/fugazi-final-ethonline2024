@@ -1,4 +1,4 @@
-# FUGAZI: The First Fully On-chain Dark Pool on Fhenix
+# FUGAZI : The First Fully On-chain Dark Pool on Fhenix
 
 This repository contains the final result of Orakle Dark Pool Team's hard work and is submitted to ETHOnline 2024. Fugazi is the first fully on-chain dark pool built on Fhenix. Unlike many other dark pools, Fugazi does not require any external or centralized entity to work, thanks to the fully homomorphic encryption (FHE) supported by Fhenix Helium Testnet.
 
